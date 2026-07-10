@@ -1,0 +1,65 @@
+{
+  "name": "rowset-diff",
+  "version": "0.1.0",
+  "description": "Diff two sets of rows by key — added, removed, and field-level changed. Order-independent, composite keys, ignore volatile fields. Zero dependencies.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "diff",
+    "rows",
+    "rowset",
+    "table",
+    "tabular",
+    "dataset",
+    "reconcile",
+    "reconciliation",
+    "keyed",
+    "primary-key",
+    "compare",
+    "comparison",
+    "result-set",
+    "csv",
+    "sql",
+    "migration",
+    "snapshot",
+    "testing"
+  ],
+  "license": "MIT",
+  "author": "Hojoong Kim",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hojoongdev/rowset-diff.git"
+  },
+  "homepage": "https://github.com/hojoongdev/rowset-diff#readme",
+  "bugs": {
+    "url": "https://github.com/hojoongdev/rowset-diff/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5",
+    "vitest": "^2.1.0"
+  }
+}
