@@ -138,9 +138,12 @@ npm version patch      # bumps package.json + creates the vX.Y.Z tag
 git push --follow-tags # pushes the commit and the tag → CI publishes
 ```
 
-Requires an `NPM_TOKEN` repository secret (a granular npm access token with
-publish rights). Every push and PR is also tested across Node 18 / 20 / 22 by
-the `CI` workflow.
+Publishing uses npm [Trusted Publishing (OIDC)](https://docs.npmjs.com/trusted-publishers)
+— no npm token is stored anywhere; GitHub Actions authenticates to npm over OIDC,
+and provenance is attached automatically. Set up once via the package's **Trusted
+Publisher** settings on npmjs.com (org `hojoongdev`, repo `rowset-diff`, workflow
+`publish.yml`). Every push and PR is also tested across Node 18 / 20 / 22 by the
+`CI` workflow.
 
 ## License
 
