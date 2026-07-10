@@ -286,5 +286,3 @@ export function formatRowsetDiff(result: RowsetDiffResult): string {
   }
   return lines.length ? lines.join('\n') : '(no differences)';
 }
-
-export default rowsetDiff;
