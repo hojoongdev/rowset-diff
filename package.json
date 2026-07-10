@@ -1,6 +1,6 @@
 {
   "name": "rowset-diff",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Diff two sets of rows by key — added, removed, and field-level changed. Order-independent, composite keys, ignore volatile fields. Zero dependencies.",
   "type": "module",
   "main": "./dist/index.cjs",
