@@ -1,5 +1,9 @@
 # rowset-diff
 
+[![npm version](https://img.shields.io/npm/v/rowset-diff.svg)](https://www.npmjs.com/package/rowset-diff)
+[![CI](https://github.com/hojoongdev/rowset-diff/actions/workflows/ci.yml/badge.svg)](https://github.com/hojoongdev/rowset-diff/actions/workflows/ci.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
 **Diff two sets of rows by key** — get back what was added, removed, and changed
 down to the field. Match on a key you name, so the diff is immune to row order
 and to volatile columns like `updated_at`. Zero dependencies, TypeScript-first.
@@ -123,6 +127,20 @@ interface RowsetDiffResult<T> {
 - **Composite keys** are encoded so distinct rows can't collide when their key parts are joined (`['x','yz']` ≠ `['xy','z']`).
 - **`Date` values** compare by time, not reference; nested objects/arrays compare structurally.
 - Not a total blank space: [`jsondiffpatch`](https://github.com/benjamine/jsondiffpatch) can match arrays by key via `objectHash`. `rowset-diff` is the small, tabular-first alternative whose output is a readable `added / removed / changed` report you can log, assert on, or render — rather than a patch document.
+
+## Releasing
+
+Publishing is automated. A pushed version tag triggers the `Publish` workflow,
+which runs the tests and publishes to npm (with provenance):
+
+```bash
+npm version patch      # bumps package.json + creates the vX.Y.Z tag
+git push --follow-tags # pushes the commit and the tag → CI publishes
+```
+
+Requires an `NPM_TOKEN` repository secret (a granular npm access token with
+publish rights). Every push and PR is also tested across Node 18 / 20 / 22 by
+the `CI` workflow.
 
 ## License
 
